@@ -28,3 +28,26 @@
   .month{transition:none}
   .js-reveal{opacity:1!important;transform:none!important;transition:none!important}
 }
+
+/* ---------- Kalendarz ogrodnika: poprawka układu ----------
+   Panel z odpowiedzią przeniesiony NAD kafle, widoczny od początku,
+   kafle zmniejszone. Wcześniej odpowiedź pojawiała się pod dwunastoma
+   kaflami, czyli poza ekranem. ------------------------------------- */
+#kalendarz .container{display:flex;flex-direction:column}
+#kalendarz .section-head{order:1}
+#kalendarz .calendar-detail{order:2;margin:0 0 22px}
+#kalendarz .month-grid{order:3}
+.calendar-detail{display:block}
+.calendar-detail .cd-opis{color:var(--ink);margin:0 0 10px}
+.month-grid{grid-template-columns:repeat(6,1fr);gap:12px}
+.month img{height:104px}
+.month div{padding:10px 12px}
+.month h3{font:700 16px var(--serif)}
+.month p{display:none}
+@media(max-width:980px){.month-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:600px){
+  .month-grid{grid-template-columns:repeat(3,1fr);gap:10px}
+  .month img{height:78px}
+  .month h3{font-size:14px}
+  .month div{padding:8px 10px}
+}

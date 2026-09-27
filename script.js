@@ -82,10 +82,17 @@ months.forEach(month=>{
       m.setAttribute('aria-pressed',String(selected));
     });
     const name=month.querySelector('h3')?.textContent?.trim()||'';
+    const opis=month.querySelector('p')?.textContent?.trim()||'';
     const advice=calendarAdvice[name]||[];
     if(calendarDetail){
-      calendarDetail.innerHTML=`<h3>${name}</h3><p>Najważniejsze prace i wskazówki:</p><ul>${advice.map(item=>`<li>${item}</li>`).join('')}</ul>`;
+      calendarDetail.innerHTML=`<h3>${name}</h3>`+
+        (opis?`<p class="cd-opis">${opis}</p>`:'')+
+        `<p>Najważniejsze prace i wskazówki:</p><ul>${advice.map(item=>`<li>${item}</li>`).join('')}</ul>`;
       calendarDetail.classList.add('is-visible');
+      const r=calendarDetail.getBoundingClientRect();
+      if(r.top<80||r.bottom>window.innerHeight){
+        calendarDetail.scrollIntoView({behavior:'smooth',block:'center'});
+      }
     }
   };
   month.addEventListener('click',select);
