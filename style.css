@@ -51,3 +51,11 @@
   .month h3{font-size:14px}
   .month div{padding:8px 10px}
 }
+
+
+/* --- akcja przy pozycji oferty (27.09.2026) --- */
+.akcja{display:inline-block;margin-top:14px;white-space:nowrap;font-size:.8rem;font-weight:600;
+  letter-spacing:.02em;text-decoration:none;color:inherit;border:1px solid currentColor;
+  border-radius:999px;padding:8px 14px;opacity:.72;transition:opacity .15s}
+.akcja:hover,.akcja:focus-visible{opacity:1}
+.card .akcja{margin:0 0 4px}
